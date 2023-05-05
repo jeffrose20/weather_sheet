@@ -17,5 +17,5 @@
 - Internal wrapper functions have been added to simplify API calls for OpenMeteo and Google Sheets.
 - Run the tool like this: `python3 app.py`
 - Example of output during testing:
-![alt text](https://github.com/jeffrose20/weather_sheet/blob/main/output.jpg?raw=true)
+![alt text](https://github.com/jeffrose20/weather_sheet/blob/main/output.JPG?raw=true)
 
