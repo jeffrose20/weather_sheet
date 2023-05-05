@@ -9,3 +9,5 @@
 ## Resources
 - Weather API docs: https://open-meteo.com/.
 - Google Sheets API docs: https://developers.google.com/sheets/api/guides/concepts.
+- Authentication for Google Sheets: https://docs.gspread.org/en/latest/oauth2.html
+

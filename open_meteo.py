@@ -1,5 +1,7 @@
 import requests
 import json
+import datetime
+from pytz import timezone
 
 # api url format for https://open-meteo.com/
 # need to replace <lat> and <long> with values
@@ -25,12 +27,23 @@ class OpenMeteo:
     def __str__(self):
         return f'lat: {self.lat}, long: {self.long}, api_url: {self.api_url}, output: {self.output}'
 
+    def get_curr_time(self, tz="US/Pacific"):
+        """
+
+            Get current datetime in the following format (PST):
+            2023-04-11 11:20 AM
+        """
+        return datetime.datetime.now(timezone(tz)).strftime("%Y-%m-%d %H:%M %p")
+
+
     def get_output(self) -> dict:
         """
             Parse values out of the 'current_weather' portion of the api return value
         """
         curr_weather = self.api_raw_json['current_weather']
-        return {'temperature': curr_weather['temperature'], 'windspeed': curr_weather['windspeed'], 'time': curr_weather['time']}
+        return (f"{curr_weather['temperature']} F",
+                f"{curr_weather['windspeed']} mph",
+                self.get_curr_time())
 
     def get_api_url(self) -> str:
         """
